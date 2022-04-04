@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
+
 @Getter
 @Setter
 @Entity
@@ -11,53 +13,53 @@ import javax.persistence.*;
 public class PostModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long postId;
-//    Long userId;
-    String text_content;
-
-
-    public PostModel(String text_content) {
-        this.text_content = text_content;
-    }
+    long id;
+    String title;
+    String body;
+    Date createdAt;
 
     @ManyToOne
-    UserModel user;
-
+    UserModel applicationUser;
     public PostModel() {
 
     }
 
-    public Long getPostId() {
-        return postId;
+
+    public String getBody() {
+        return body;
     }
 
-    public void setPostId(Long postId) {
-        this.postId = postId;
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public UserModel getApplicationUser() {
+        return applicationUser;
+    }
+
+    public void setApplicationUser(UserModel postByUser) {
+        this.applicationUser = postByUser;
     }
 
 
-    public String getText_content() {
-        return text_content;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText_content(String text_content) {
-        this.text_content = text_content;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public UserModel getUser() {
-        return user;
-    }
-
-    public void setUser(UserModel user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "PostModel{" +
-                "postId=" + postId +
-                ", text_content='" + text_content + '\'' +
-                ", user=" + user +
-                '}';
+    public PostModel(String title, String body) {
+        this.title = title;
+        this.body = body;
     }
 }

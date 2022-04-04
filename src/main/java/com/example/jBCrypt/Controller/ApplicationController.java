@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
 
 @Controller
@@ -22,21 +21,17 @@ public class ApplicationController {
         this.postrepository = postrepository;
     }
 
-    @GetMapping("/loginuser")
-    public String homepagelogin(Principal user,Model m)  {
-        if (user != null){
-            String username = user.getName();
-            UserModel newUser = userrepository.findByUsername(username);
-            String name=newUser.username;
-            m.addAttribute("name", name);
-        }
-        return "indexlogin";
-    }
-
-    @GetMapping("/")
-    String homepage(Model m) {
-        return "index";
-    }
+//    @GetMapping("/loginuser")
+//    public String homepagelogin(Principal user,Model m)  {
+//        if (user != null){
+//            String username = user.getName();
+//            UserModel newUser = userrepository.findByUsername(username);
+//            String name=newUser.username;
+//            m.addAttribute("name", name);
+//        }
+//        return "indexlogin";
+//    }
+//
 
     @GetMapping("/login")
     public String getLoginPage() {

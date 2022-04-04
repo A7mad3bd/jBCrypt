@@ -10,5 +10,8 @@
 <body>
 <h1>Welcome User in the application!</h1>
 
+<ul th:each="newUser: ${newUser}">
+    <p>Username</p><span th:text="${newUser.username}"></span>
+</ul>
 </body>
 </html>

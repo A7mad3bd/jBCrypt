@@ -17,7 +17,7 @@ public class UserModel {
     String password;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "applicationUser")
     private Set<PostModel> posts;
 
     public UserModel() {
